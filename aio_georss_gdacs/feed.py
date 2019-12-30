@@ -24,7 +24,6 @@ class GdacsFeed(GeoRssFeed):
                          URL,
                          filter_radius=filter_radius,
                          filter_categories=filter_categories)
-        self._entries = None
 
     def _new_entry(self, home_coordinates, feature, global_data):
         """Generate a new entry."""
