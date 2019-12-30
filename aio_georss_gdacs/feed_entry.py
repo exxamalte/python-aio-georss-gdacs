@@ -11,9 +11,9 @@ from .consts import ATTRIBUTION, XML_TAG_GDACS_COUNTRY, \
     XML_TAG_GDACS_TEMPORARY, XML_TAG_GDACS_ALERT_LEVEL, \
     XML_TAG_GDACS_EVENT_TYPE, EVENT_TYPE_MAP, XML_TAG_GDACS_ICON, \
     XML_TAG_GDACS_POPULATION, XML_TAG_GDACS_SEVERITY, \
-    XML_TAG_GDACS_VULNERABILITY, XML_TAG_GDACS_BBOX, \
-    XML_TAG_GDACS_DURATION_IN_WEEK, XML_TAG_GDACS_EVENT_NAME, \
-    XML_TAG_GDACS_VERSION, XML_ATTRIBUTE_VALUE, XML_TEXT
+    XML_TAG_GDACS_VULNERABILITY, XML_TAG_GDACS_DURATION_IN_WEEK, \
+    XML_TAG_GDACS_EVENT_NAME, XML_TAG_GDACS_VERSION, XML_ATTRIBUTE_VALUE, \
+    XML_TEXT
 
 
 class GdacsFeedEntry(FeedEntry):
@@ -39,15 +39,6 @@ class GdacsFeedEntry(FeedEntry):
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_ALERT_LEVEL)
-        return None
-
-    @property
-    def bbox(self) -> Optional[str]:
-        """Return the bbox of this entry."""
-        if self._rss_entry:
-            # gdacs:bbox format = lonmin lonmax latmin latmax
-            return self._rss_entry.get_additional_attribute(
-                XML_TAG_GDACS_BBOX)
         return None
 
     @property

@@ -7,7 +7,6 @@ XML_TEXT = "#text"
 
 XML_TAG_DC_SUBJECT = 'dc:subject'
 XML_TAG_GDACS_ALERT_LEVEL = 'gdacs:alertlevel'
-XML_TAG_GDACS_BBOX = 'gdacs:bbox'
 XML_TAG_GDACS_COUNTRY = 'gdacs:country'
 XML_TAG_GDACS_DURATION_IN_WEEK = 'gdacs:durationinweek'
 XML_TAG_GDACS_EVENT_NAME = 'gdacs:eventname'
