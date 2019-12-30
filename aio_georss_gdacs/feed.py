@@ -1,6 +1,5 @@
 """GDACS feed."""
 import logging
-from typing import Optional
 
 from aio_georss_client.feed import GeoRssFeed
 from aiohttp import ClientSession
@@ -23,8 +22,8 @@ class GdacsFeed(GeoRssFeed):
         super().__init__(websession,
                          home_coordinates,
                          URL,
-                         filter_radius=filter_radius)
-        self._filter_categories = filter_categories
+                         filter_radius=filter_radius,
+                         filter_categories=filter_categories)
         self._entries = None
 
     def _new_entry(self, home_coordinates, feature, global_data):
