@@ -112,7 +112,7 @@ class GdacsFeedEntry(FeedEntry):
             is_current = self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_IS_CURRENT)
             if is_current:
-                return bool(is_current)
+                return FeedEntry._string2boolean(is_current)
         return None
 
     @property
@@ -150,7 +150,7 @@ class GdacsFeedEntry(FeedEntry):
             temporary = self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_TEMPORARY)
             if temporary:
-                return bool(temporary)
+                return FeedEntry._string2boolean(temporary)
         return None
 
     @property
