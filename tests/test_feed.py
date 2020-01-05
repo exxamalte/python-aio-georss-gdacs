@@ -2,11 +2,10 @@
 import datetime
 
 import aiohttp
-import pytest
-
 import pytz
 from aio_georss_client.consts import UPDATE_OK
 
+import pytest
 from aio_georss_gdacs.consts import ATTRIBUTION
 from aio_georss_gdacs.feed import GdacsFeed
 from tests.utils import load_fixture

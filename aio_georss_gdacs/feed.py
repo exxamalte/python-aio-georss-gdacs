@@ -1,6 +1,6 @@
 """GDACS feed."""
 import logging
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 from aio_georss_client.feed import GeoRssFeed
 from aio_georss_client.xml_parser.feed_item import FeedItem

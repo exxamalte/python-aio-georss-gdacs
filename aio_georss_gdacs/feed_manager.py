@@ -1,5 +1,5 @@
 """Feed Manager for GDACS feed."""
-from typing import Callable, Awaitable, List
+from typing import Awaitable, Callable, List
 
 from aio_georss_client.feed_manager import FeedManagerBase
 from aio_georss_client.status_update import StatusUpdate
