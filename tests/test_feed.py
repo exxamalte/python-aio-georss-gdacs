@@ -3,7 +3,6 @@ import datetime
 
 import aiohttp
 import pytest
-# from unittest import mock
 
 import pytz
 from aio_georss_client.consts import UPDATE_OK

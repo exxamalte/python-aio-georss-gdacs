@@ -1,10 +1,11 @@
 """GDACS feed entry."""
-import collections
+from collections.abc import Mapping
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Tuple
 
 import dateparser
 from aio_georss_client.feed_entry import FeedEntry
+from aio_georss_client.xml_parser.feed_item import FeedItem
 
 from .consts import (ATTRIBUTION, EVENT_TYPE_MAP, XML_ATTRIBUTE_VALUE,
                      XML_TAG_GDACS_ALERT_LEVEL, XML_TAG_GDACS_COUNTRY,
@@ -20,7 +21,9 @@ from .consts import (ATTRIBUTION, EVENT_TYPE_MAP, XML_ATTRIBUTE_VALUE,
 class GdacsFeedEntry(FeedEntry):
     """GDACS feed entry."""
 
-    def __init__(self, home_coordinates, feature):
+    def __init__(self,
+                 home_coordinates: Tuple[float, float],
+                 feature: FeedItem):
         """Initialise this service."""
         super().__init__(home_coordinates, feature)
 
@@ -122,7 +125,7 @@ class GdacsFeedEntry(FeedEntry):
             population = self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_POPULATION)
             if population:
-                if isinstance(population, collections.Mapping):
+                if isinstance(population, Mapping):
                     if XML_TEXT in population:
                         return population[XML_TEXT]
                 else:
@@ -136,7 +139,7 @@ class GdacsFeedEntry(FeedEntry):
             severity = self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_SEVERITY)
             if severity:
-                if isinstance(severity, collections.Mapping):
+                if isinstance(severity, Mapping):
                     if XML_TEXT in severity:
                         return severity[XML_TEXT]
                 else:
@@ -180,7 +183,7 @@ class GdacsFeedEntry(FeedEntry):
             vulnerability = self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_VULNERABILITY)
             if vulnerability:
-                if isinstance(vulnerability, collections.Mapping):
+                if isinstance(vulnerability, Mapping):
                     if XML_ATTRIBUTE_VALUE in vulnerability:
                         return vulnerability[XML_ATTRIBUTE_VALUE]
                 else:

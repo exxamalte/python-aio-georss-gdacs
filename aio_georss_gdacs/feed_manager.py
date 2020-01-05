@@ -1,5 +1,8 @@
 """Feed Manager for GDACS feed."""
+from typing import Callable, Awaitable, List
+
 from aio_georss_client.feed_manager import FeedManagerBase
+from aio_georss_client.status_update import StatusUpdate
 from aiohttp import ClientSession
 
 from .feed import GdacsFeed
@@ -10,13 +13,14 @@ class GdacsFeedManager(FeedManagerBase):
 
     def __init__(self,
                  websession: ClientSession,
-                 generate_callback,
-                 update_callback,
-                 remove_callback,
+                 generate_async_callback: Callable[[str], Awaitable[None]],
+                 update_async_callback: Callable[[str], Awaitable[None]],
+                 remove_async_callback: Callable[[str], Awaitable[None]],
                  coordinates,
-                 filter_radius=None,
-                 filter_categories=None,
-                 status_callback=None):
+                 filter_radius: float = None,
+                 filter_categories: List[str] = None,
+                 status_async_callback: Callable[[StatusUpdate],
+                                                 Awaitable[None]] = None):
         """Initialize the GDACS Feed Manager."""
         feed = GdacsFeed(
             websession,
@@ -24,7 +28,7 @@ class GdacsFeedManager(FeedManagerBase):
             filter_radius=filter_radius,
             filter_categories=filter_categories)
         super().__init__(feed,
-                         generate_callback,
-                         update_callback,
-                         remove_callback,
-                         status_callback)
+                         generate_async_callback,
+                         update_async_callback,
+                         remove_async_callback,
+                         status_async_callback)
