@@ -22,12 +22,12 @@ XML_TAG_GDACS_VERSION = 'gdacs:version'
 XML_TAG_GDACS_VULNERABILITY = 'gdacs:vulnerability'
 
 EVENT_TYPE_MAP = {
-    "FL": "Flood",
+    "DR": "Drought",
     "EQ": "Earthquake",
-    "TS": "Tsunami",
+    "FL": "Flood",
     "TC": "Tropical Cyclone",
-    "VO": "Volcano",
-    "DR": "Drought"
+    "TS": "Tsunami",
+    "VO": "Volcano"
 }
 
 URL = "https://www.gdacs.org/xml/rss.xml"
