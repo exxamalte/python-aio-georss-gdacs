@@ -67,7 +67,7 @@ async def test_update_ok(aresponses, event_loop):
                                       "of 93 km/h)"
         assert feed_entry.temporary == False
         assert feed_entry.version == 1
-        assert feed_entry.vulnerability == '2'
+        assert feed_entry.vulnerability == 'Medium'
         assert feed_entry.published == datetime.datetime(2019, 12, 29, 12,
                                                          0, 0, tzinfo=pytz.utc)
 
@@ -77,6 +77,7 @@ async def test_update_ok(aresponses, event_loop):
                                    "Depth:10km) in South Africa 28/12/2019 " \
                                    "15:36 UTC, No people within 100km."
         assert feed_entry.external_id == "EQ1199929"
+        assert feed_entry.vulnerability == 5.01535213120674
 
         feed_entry = entries[2]
         assert feed_entry is not None

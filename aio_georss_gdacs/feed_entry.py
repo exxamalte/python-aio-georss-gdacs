@@ -1,7 +1,7 @@
 """GDACS feed entry."""
 from collections.abc import Mapping
 from datetime import datetime
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 
 import dateparser
 from aio_georss_client.feed_entry import FeedEntry
@@ -177,15 +177,19 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def vulnerability(self) -> Optional[str]:
+    def vulnerability(self) -> Optional[Union[str, float]]:
         """Return the vulnerability of this entry."""
         if self._rss_entry:
             vulnerability = self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_VULNERABILITY)
             if vulnerability:
                 if isinstance(vulnerability, Mapping):
+                    # 1. See if there is a textual value.
+                    if XML_TEXT in vulnerability:
+                        return vulnerability[XML_TEXT]
+                    # 2. See if there is a numerical value.
                     if XML_ATTRIBUTE_VALUE in vulnerability:
-                        return vulnerability[XML_ATTRIBUTE_VALUE]
+                        return float(vulnerability[XML_ATTRIBUTE_VALUE])
                 else:
                     return vulnerability
         return None
