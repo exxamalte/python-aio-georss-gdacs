@@ -73,8 +73,8 @@ Each feed entry is populated with the following properties:
 | country          | Country where incident happened.                                                              | `gdacs:country`               |
 | duration_in_week | Duration of the incident in full weeks.                                                       | `gdacs:durationinweek`        |
 | event_name       | Short event name.                                                                             | `gdacs:eventname`             |
-| event_type       | Short event type ("DR, "EQ", "FL", "TC", "TS", "VO").                                         | `gdacs:eventtype`             |
-| event_type_long  | Long event type ("Drought", "Earthquake", "Flood", "Tropical Cyclone", "Tsunami", "Volcano"). | `gdacs:eventtype`             |
+| event_type_short | Short event type ("DR, "EQ", "FL", "TC", "TS", "VO").                                         | `gdacs:eventtype`             |
+| event_type       | Long event type ("Drought", "Earthquake", "Flood", "Tropical Cyclone", "Tsunami", "Volcano"). | `gdacs:eventtype`             |
 | from_date        | Date and time this incident started.                                                          | `gdacs:fromdate`              |
 | icon_url         | Icon URL.                                                                                     | `gdacs:icon`                  |
 | is_current       | Whether this incident is current.                                                             | `gdacs:iscurrent`             |
@@ -83,7 +83,7 @@ Each feed entry is populated with the following properties:
 | temporary        | Whether this incident is temporary.                                                           | `gdacs:temporary`             |
 | to_date          | Date and time this incident ended.                                                            | `gdacs:todate`                |
 | version          | Version of the incident in this feed.                                                         | `gdacs:version`               |
-| vulnerability    | Vulnerability score.                                                                          | `gdacs:vulnerability`         |
+| vulnerability    | Vulnerability score (textual or numeric).                                                     | `gdacs:vulnerability`         |
 
 
 ## Feed Manager
