@@ -15,7 +15,7 @@ from .consts import (ATTRIBUTION, EVENT_TYPE_MAP, XML_ATTRIBUTE_VALUE,
                      XML_TAG_GDACS_POPULATION, XML_TAG_GDACS_SEVERITY,
                      XML_TAG_GDACS_TEMPORARY, XML_TAG_GDACS_TO_DATE,
                      XML_TAG_GDACS_VERSION, XML_TAG_GDACS_VULNERABILITY,
-                     XML_TEXT)
+                     XML_TEXT, XML_TAG_GDACS_EVENT_ID)
 
 
 class GdacsFeedEntry(FeedEntry):
@@ -64,6 +64,16 @@ class GdacsFeedEntry(FeedEntry):
                 XML_TAG_GDACS_DURATION_IN_WEEK)
             if duration_in_week:
                 return int(duration_in_week)
+        return None
+
+    @property
+    def event_id(self) -> Optional[int]:
+        """Return the event id of this entry."""
+        if self._rss_entry:
+            event_id = self._rss_entry.get_additional_attribute(
+                XML_TAG_GDACS_EVENT_ID)
+            if event_id:
+                return int(event_id)
         return None
 
     @property
