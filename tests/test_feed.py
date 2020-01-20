@@ -51,6 +51,7 @@ async def test_update_ok(aresponses, event_loop):
         assert feed_entry.alert_level == 'Green'
         assert feed_entry.country == 'Mauritius'
         assert feed_entry.duration_in_week == 0
+        assert feed_entry.event_id == 1000643
         assert feed_entry.event_name == 'CALVINIA-19'
         assert feed_entry.event_type_short == 'TC'
         assert feed_entry.event_type == "Tropical Cyclone"
