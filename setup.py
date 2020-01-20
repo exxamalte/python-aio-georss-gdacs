@@ -9,7 +9,7 @@ DESCRIPTION = "An async GeoRSS client library for GDACS feeds."
 URL = "https://github.com/exxamalte/python-aio-georss-gdacs"
 
 REQUIRES = [
-    'aio_georss_client>=0.4',
+    'aio_georss_client>=0.5',
     'dateparser>=0.7.0',
 ]
 
