@@ -11,6 +11,7 @@ async def test_empty_feed_entry(aresponses, event_loop):
     assert feed_entry.alert_level is None
     assert feed_entry.country is None
     assert feed_entry.duration_in_week is None
+    assert feed_entry.event_id is None
     assert feed_entry.event_name is None
     assert feed_entry.event_type_short is None
     assert feed_entry.event_type == "Unknown"
