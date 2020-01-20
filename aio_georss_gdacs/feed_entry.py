@@ -35,7 +35,7 @@ class GdacsFeedEntry(FeedEntry):
     @property
     def category(self) -> Optional[str]:
         """Return the category of this entry."""
-        return self.event_type_long
+        return self.event_type
 
     @property
     def alert_level(self) -> Optional[str]:
@@ -75,19 +75,19 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def event_type(self) -> Optional[str]:
-        """Return the event type of this entry."""
+    def event_type_short(self) -> Optional[str]:
+        """Return the short event type of this entry."""
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(
                 XML_TAG_GDACS_EVENT_TYPE)
         return None
 
     @property
-    def event_type_long(self) -> Optional[str]:
-        """Return the long event type of this entry."""
-        event_type = self.event_type
-        if event_type and event_type in EVENT_TYPE_MAP:
-            return EVENT_TYPE_MAP[event_type]
+    def event_type(self) -> Optional[str]:
+        """Return the event type of this entry."""
+        event_type_short = self.event_type_short
+        if event_type_short and event_type_short in EVENT_TYPE_MAP:
+            return EVENT_TYPE_MAP[event_type_short]
         return "Unknown"
 
     @property
