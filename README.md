@@ -72,6 +72,7 @@ Each feed entry is populated with the following properties:
 | alert_level      | Alert level ("Red", "Orange", "Green").                                                       | `gdacs:alertlevel`            |
 | country          | Country where incident happened.                                                              | `gdacs:country`               |
 | duration_in_week | Duration of the incident in full weeks.                                                       | `gdacs:durationinweek`        |
+| event_id         | Event ID (numerical).                                                                         | `gdacs:eventid`               |
 | event_name       | Short event name.                                                                             | `gdacs:eventname`             |
 | event_type_short | Short event type ("DR, "EQ", "FL", "TC", "TS", "VO").                                         | `gdacs:eventtype`             |
 | event_type       | Long event type ("Drought", "Earthquake", "Flood", "Tropical Cyclone", "Tsunami", "Volcano"). | `gdacs:eventtype`             |
@@ -83,7 +84,7 @@ Each feed entry is populated with the following properties:
 | temporary        | Whether this incident is temporary.                                                           | `gdacs:temporary`             |
 | to_date          | Date and time this incident ended.                                                            | `gdacs:todate`                |
 | version          | Version of the incident in this feed.                                                         | `gdacs:version`               |
-| vulnerability    | Vulnerability score (textual or numeric).                                                     | `gdacs:vulnerability`         |
+| vulnerability    | Vulnerability score (textual or numerical).                                                   | `gdacs:vulnerability`         |
 
 
 ## Feed Manager
