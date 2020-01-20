@@ -52,8 +52,8 @@ async def test_update_ok(aresponses, event_loop):
         assert feed_entry.country == 'Mauritius'
         assert feed_entry.duration_in_week == 0
         assert feed_entry.event_name == 'CALVINIA-19'
-        assert feed_entry.event_type == 'TC'
-        assert feed_entry.event_type_long == "Tropical Cyclone"
+        assert feed_entry.event_type_short == 'TC'
+        assert feed_entry.event_type == "Tropical Cyclone"
         assert feed_entry.from_date == datetime.datetime(2019, 12, 29, 12,
                                                          0, 0, tzinfo=pytz.utc)
         assert feed_entry.to_date == datetime.datetime(2019, 12, 29, 12,
