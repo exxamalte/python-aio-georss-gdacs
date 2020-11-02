@@ -44,7 +44,7 @@ async def test_update_ok(aresponses, event_loop):
         assert feed_entry.external_id == "TC1000643"
         assert feed_entry.coordinates[0] == pytest.approx(-19.4)
         assert feed_entry.coordinates[1] == pytest.approx(59.8)
-        assert round(abs(feed_entry.distance_to_home - 7398.9), 1) == 0
+        assert round(abs(feed_entry.distance_to_home - 10517.9), 1) == 0
         assert repr(feed_entry) == "<GdacsFeedEntry(id=TC1000643)>"
         assert feed_entry.attribution == ATTRIBUTION
         assert feed_entry.category == "Tropical Cyclone"
@@ -117,7 +117,7 @@ async def test_update_ok_with_categories_filter(aresponses, event_loop):
         assert feed_entry.external_id == "DR1013682"
         assert feed_entry.coordinates[0] == pytest.approx(39.544)
         assert feed_entry.coordinates[1] == pytest.approx(31.926)
-        assert round(abs(feed_entry.distance_to_home - 16401.1), 1) == 0
+        assert round(abs(feed_entry.distance_to_home - 16880.3), 1) == 0
         assert repr(feed_entry) == "<GdacsFeedEntry(id=DR1013682)>"
 
         feed_entry = entries[1]
