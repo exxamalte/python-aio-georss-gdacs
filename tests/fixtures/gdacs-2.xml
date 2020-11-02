@@ -8,5 +8,21 @@
     <webMaster>stefano.paris@ext.ec.europa.eu</webMaster>
     <pubDate>Mon, 30 Dec 2019 01:35:11 GMT</pubDate>
     <atom:link href="http://www.gdacs.org/xml/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Entry with only bounding box geometry to be discarded</title>
+      <description>From 29/12/2019 to 29/12/2019, a Tropical Storm (maximum wind speed of 93 km/h) CALVINIA-19 was active in SWIndian. The cyclone affects these countries: Mauritius (vulnerability Medium). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0.</description>
+      <gdacs:temporary>false</gdacs:temporary>
+      <link>http://www.gdacs.org/report.aspx?eventtype=TC&amp;eventid=1000643</link>
+      <pubDate>Sun, 29 Dec 2019 12:00:00 GMT</pubDate>
+      <gdacs:iscurrent>true</gdacs:iscurrent>
+      <gdacs:fromdate>Sun, 29 Dec 2019 12:00:00 GMT</gdacs:fromdate>
+      <gdacs:todate>Sun, 29 Dec 2019 12:00:00 GMT</gdacs:todate>
+      <gdacs:durationinweek>0</gdacs:durationinweek>
+      <gdacs:year>2019</gdacs:year>
+      <dc:subject>TC1</dc:subject>
+      <guid isPermaLink="false">TC1000643</guid>
+      <!--gdacs:bbox format = lonmin lonmax latmin latmax-->
+      <gdacs:bbox>55.0780533046962 81.0780533046962 -46.7828750315965 -20.7828750315965</gdacs:bbox>
+    </item>
   </channel>
 </rss>
