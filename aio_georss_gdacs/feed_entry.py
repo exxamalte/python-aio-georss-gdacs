@@ -1,11 +1,12 @@
 """GDACS feed entry."""
 from collections.abc import Mapping
 from datetime import datetime
-from typing import Optional, Tuple, Union
+from typing import Optional, Tuple, Union, List, Type
 
 import dateparser
 from aio_georss_client.feed_entry import FeedEntry
 from aio_georss_client.xml_parser.feed_item import FeedItem
+from aio_georss_client.xml_parser.geometry import Geometry, Polygon, Point
 
 from .consts import (ATTRIBUTION, EVENT_TYPE_MAP, XML_ATTRIBUTE_VALUE,
                      XML_TAG_GDACS_ALERT_LEVEL, XML_TAG_GDACS_COUNTRY,
@@ -26,6 +27,11 @@ class GdacsFeedEntry(FeedEntry):
                  feature: FeedItem):
         """Initialise this service."""
         super().__init__(home_coordinates, feature)
+
+    @property
+    def features(self) -> List[Type[Geometry]]:
+        """Only consider Point and Polygon in this integration."""
+        return [Point, Polygon]
 
     @property
     def attribution(self) -> Optional[str]:
