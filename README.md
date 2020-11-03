@@ -61,8 +61,8 @@ Each feed entry is populated with the following properties:
 
 | Name             | Description                                                                                   | Feed attribute                |
 |------------------|-----------------------------------------------------------------------------------------------|-------------------------------|
-| geometries       | All geometry details of this entry.                                                           | `gdacs:bbox` / `georss:point` |
-| coordinates      | Best coordinates (latitude, longitude) of this entry.                                         | `gdacs:bbox` / `georss:point` |
+| geometries       | All geometry details of this entry (except bounding boxes).                                   | `georss:point`                |
+| coordinates      | Best coordinates (latitude, longitude) of this entry.                                         | `georss:point`                |
 | external_id      | The unique public identifier for this incident.                                               | `guid`                        |
 | title            | Title of this entry.                                                                          | `title`                       |
 | attribution      | Attribution of the feed.                                                                      | n/a                           |
