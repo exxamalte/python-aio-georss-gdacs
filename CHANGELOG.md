@@ -1,5 +1,9 @@
 # Changes
 
+## 0.4 (04/11/2020)
+* Ignore bounding box geometry definition from feed when calculating distance
+  and event's coordinates.
+
 ## 0.3 (21/01/2020)
 * Extract event id from feed.
 
