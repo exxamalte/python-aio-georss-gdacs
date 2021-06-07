@@ -1,5 +1,9 @@
 # Changes
 
+## 0.5 (07/06/2021)
+* Add license tag (thanks @fabaff).
+* General code improvements.
+
 ## 0.4 (04/11/2020)
 * Ignore bounding box geometry definition from feed when calculating distance
   and event's coordinates.
