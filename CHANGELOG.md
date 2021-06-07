@@ -2,6 +2,8 @@
 
 ## 0.5 (07/06/2021)
 * Add license tag (thanks @fabaff).
+* Bump aio_georss_client to v0.7.
+* Added Python 3.9 support.
 * General code improvements.
 
 ## 0.4 (04/11/2020)
