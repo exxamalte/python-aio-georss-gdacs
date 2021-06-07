@@ -15,21 +15,27 @@ _LOGGER = logging.getLogger(__name__)
 class GdacsFeed(GeoRssFeed[GdacsFeedEntry]):
     """GDACS feed."""
 
-    def __init__(self,
-                 websession: ClientSession,
-                 home_coordinates: Tuple[float, float],
-                 filter_radius: float = None,
-                 filter_categories: List[str] = None):
+    def __init__(
+        self,
+        websession: ClientSession,
+        home_coordinates: Tuple[float, float],
+        filter_radius: float = None,
+        filter_categories: List[str] = None,
+    ):
         """Initialise this service."""
-        super().__init__(websession,
-                         home_coordinates,
-                         URL,
-                         filter_radius=filter_radius,
-                         filter_categories=filter_categories)
+        super().__init__(
+            websession,
+            home_coordinates,
+            URL,
+            filter_radius=filter_radius,
+            filter_categories=filter_categories,
+        )
 
-    def _new_entry(self,
-                   home_coordinates: Tuple[float, float],
-                   feature: FeedItem,
-                   global_data: Dict) -> GdacsFeedEntry:
+    def _new_entry(
+        self,
+        home_coordinates: Tuple[float, float],
+        feature: FeedItem,
+        global_data: Dict,
+    ) -> GdacsFeedEntry:
         """Generate a new entry."""
         return GdacsFeedEntry(home_coordinates, feature)

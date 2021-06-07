@@ -14,11 +14,10 @@ async def test_feed_manager(aresponses, event_loop):
     """Test the feed manager."""
     home_coordinates = (-41.2, 174.7)
     aresponses.add(
-        'www.gdacs.org',
-        '/xml/rss.xml',
-        'get',
-        aresponses.Response(text=load_fixture('gdacs-1.xml'),
-                            status=200),
+        "www.gdacs.org",
+        "/xml/rss.xml",
+        "get",
+        aresponses.Response(text=load_fixture("gdacs-1.xml"), status=200),
         match_querystring=True,
     )
 
@@ -41,22 +40,27 @@ async def test_feed_manager(aresponses, event_loop):
             """Remove entity."""
             removed_entity_external_ids.append(external_id)
 
-        feed_manager = GdacsFeedManager(websession,
-                                        _generate_entity,
-                                        _update_entity,
-                                        _remove_entity,
-                                        home_coordinates)
-        assert repr(feed_manager) == "<GdacsFeedManager(" \
-                                     "feed=<GdacsFeed(home=(-41.2, 174.7), " \
-                                     "url=https://www.gdacs.org/xml/" \
-                                     "rss.xml, " \
-                                     "radius=None, categories=None)>)>"
+        feed_manager = GdacsFeedManager(
+            websession,
+            _generate_entity,
+            _update_entity,
+            _remove_entity,
+            home_coordinates,
+        )
+        assert (
+            repr(feed_manager) == "<GdacsFeedManager("
+            "feed=<GdacsFeed(home=(-41.2, 174.7), "
+            "url=https://www.gdacs.org/xml/"
+            "rss.xml, "
+            "radius=None, categories=None)>)>"
+        )
         await feed_manager.update()
         entries = feed_manager.feed_entries
         assert entries is not None
         assert len(entries) == 4
-        assert feed_manager.last_timestamp \
-            == datetime.datetime(2019, 12, 30, 1, 27, 0, tzinfo=pytz.utc)
+        assert feed_manager.last_timestamp == datetime.datetime(
+            2019, 12, 30, 1, 27, 0, tzinfo=pytz.utc
+        )
         assert len(generated_entity_external_ids) == 4
         assert len(updated_entity_external_ids) == 0
         assert len(removed_entity_external_ids) == 0
