@@ -1,5 +1,6 @@
 """Test for the GDACS feed entry."""
 import pytest
+
 from aio_georss_gdacs.feed_entry import GdacsFeedEntry
 
 

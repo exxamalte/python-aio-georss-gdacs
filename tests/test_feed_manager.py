@@ -2,9 +2,9 @@
 import datetime
 
 import aiohttp
+import pytest
 import pytz
 
-import pytest
 from aio_georss_gdacs.feed_manager import GdacsFeedManager
 from tests.utils import load_fixture
 

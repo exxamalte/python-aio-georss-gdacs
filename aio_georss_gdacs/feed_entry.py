@@ -1,12 +1,12 @@
 """GDACS feed entry."""
 from collections.abc import Mapping
 from datetime import datetime
-from typing import Optional, Tuple, Union, List, Type
+from typing import List, Optional, Tuple, Type, Union
 
 import dateparser
 from aio_georss_client.feed_entry import FeedEntry
 from aio_georss_client.xml_parser.feed_item import FeedItem
-from aio_georss_client.xml_parser.geometry import Geometry, Polygon, Point
+from aio_georss_client.xml_parser.geometry import Geometry, Point, Polygon
 
 from .consts import (
     ATTRIBUTION,
@@ -15,6 +15,7 @@ from .consts import (
     XML_TAG_GDACS_ALERT_LEVEL,
     XML_TAG_GDACS_COUNTRY,
     XML_TAG_GDACS_DURATION_IN_WEEK,
+    XML_TAG_GDACS_EVENT_ID,
     XML_TAG_GDACS_EVENT_NAME,
     XML_TAG_GDACS_EVENT_TYPE,
     XML_TAG_GDACS_FROM_DATE,
@@ -27,7 +28,6 @@ from .consts import (
     XML_TAG_GDACS_VERSION,
     XML_TAG_GDACS_VULNERABILITY,
     XML_TEXT,
-    XML_TAG_GDACS_EVENT_ID,
 )
 
 
