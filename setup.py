@@ -1,6 +1,6 @@
 import os
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 NAME = "aio_georss_gdacs"
 AUTHOR = "Malte Franken"
@@ -9,8 +9,8 @@ DESCRIPTION = "An async GeoRSS client library for GDACS feeds."
 URL = "https://github.com/exxamalte/python-aio-georss-gdacs"
 
 REQUIRES = [
-    'aio_georss_client>=0.7',
-    'dateparser>=0.7.0',
+    "aio_georss_client>=0.7",
+    "dateparser>=0.7.0",
 ]
 
 
@@ -34,12 +34,11 @@ setup(
     url=URL,
     packages=find_packages(exclude=("tests",)),
     classifiers=[
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    install_requires=REQUIRES
+    install_requires=REQUIRES,
 )
