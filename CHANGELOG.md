@@ -1,5 +1,13 @@
 # Changes
 
+## 0.6 (20/02/2022)
+* No functional changes.
+* Added Python 3.10 support.
+* Removed Python 3.6 support.
+* Bumped version of upstream GeoRSS library.
+* Bumped library versions: black, flake8, isort.
+* Migrated to github actions.
+
 ## 0.5 (07/06/2021)
 * Add license tag (thanks @fabaff).
 * Bump aio_georss_client to v0.7.
