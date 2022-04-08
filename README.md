@@ -59,32 +59,32 @@ asyncio.get_event_loop().run_until_complete(main())
 ## Feed entry properties
 Each feed entry is populated with the following properties:
 
-| Name             | Description                                                                                   | Feed attribute                |
-|------------------|-----------------------------------------------------------------------------------------------|-------------------------------|
-| geometries       | All geometry details of this entry (except bounding boxes).                                   | `georss:point`                |
-| coordinates      | Best coordinates (latitude, longitude) of this entry.                                         | `georss:point`                |
-| external_id      | The unique public identifier for this incident.                                               | `guid`                        |
-| title            | Title of this entry.                                                                          | `title`                       |
-| attribution      | Attribution of the feed.                                                                      | n/a                           |
-| distance_to_home | Distance in km of this entry to the home coordinates.                                         | n/a                           |
-| category         | The alert level of the incident.                                                              | `gdacs:alertlevel`            |
-| description      | The description of the incident.                                                              | `description`                 |
-| alert_level      | Alert level ("Red", "Orange", "Green").                                                       | `gdacs:alertlevel`            |
-| country          | Country where incident happened.                                                              | `gdacs:country`               |
-| duration_in_week | Duration of the incident in full weeks.                                                       | `gdacs:durationinweek`        |
-| event_id         | Event ID (numerical).                                                                         | `gdacs:eventid`               |
-| event_name       | Short event name.                                                                             | `gdacs:eventname`             |
-| event_type_short | Short event type ("DR, "EQ", "FL", "TC", "TS", "VO").                                         | `gdacs:eventtype`             |
-| event_type       | Long event type ("Drought", "Earthquake", "Flood", "Tropical Cyclone", "Tsunami", "Volcano"). | `gdacs:eventtype`             |
-| from_date        | Date and time this incident started.                                                          | `gdacs:fromdate`              |
-| icon_url         | Icon URL.                                                                                     | `gdacs:icon`                  |
-| is_current       | Whether this incident is current.                                                             | `gdacs:iscurrent`             |
-| population       | Exposed population.                                                                           | `gdacs:population`            |
-| severity         | Severity of the incident.                                                                     | `gdacs:severity`              |
-| temporary        | Whether this incident is temporary.                                                           | `gdacs:temporary`             |
-| to_date          | Date and time this incident ended.                                                            | `gdacs:todate`                |
-| version          | Version of the incident in this feed.                                                         | `gdacs:version`               |
-| vulnerability    | Vulnerability score (textual or numerical).                                                   | `gdacs:vulnerability`         |
+| Name             | Description                                                                                                | Feed attribute                |
+|------------------|------------------------------------------------------------------------------------------------------------|-------------------------------|
+| geometries       | All geometry details of this entry (except bounding boxes).                                                | `georss:point`                |
+| coordinates      | Best coordinates (latitude, longitude) of this entry.                                                      | `georss:point`                |
+| external_id      | The unique public identifier for this incident.                                                            | `guid`                        |
+| title            | Title of this entry.                                                                                       | `title`                       |
+| attribution      | Attribution of the feed.                                                                                   | n/a                           |
+| distance_to_home | Distance in km of this entry to the home coordinates.                                                      | n/a                           |
+| category         | The alert level of the incident.                                                                           | `gdacs:alertlevel`            |
+| description      | The description of the incident.                                                                           | `description`                 |
+| alert_level      | Alert level ("Red", "Orange", "Green").                                                                    | `gdacs:alertlevel`            |
+| country          | Country where incident happened.                                                                           | `gdacs:country`               |
+| duration_in_week | Duration of the incident in full weeks.                                                                    | `gdacs:durationinweek`        |
+| event_id         | Event ID (numerical).                                                                                      | `gdacs:eventid`               |
+| event_name       | Short event name.                                                                                          | `gdacs:eventname`             |
+| event_type_short | Short event type ("DR, "EQ", "FL", "TC", "TS", "VO", "WF").                                                | `gdacs:eventtype`             |
+| event_type       | Long event type ("Drought", "Earthquake", "Flood", "Tropical Cyclone", "Tsunami", "Volcano", "Wild Fire"). | `gdacs:eventtype`             |
+| from_date        | Date and time this incident started.                                                                       | `gdacs:fromdate`              |
+| icon_url         | Icon URL.                                                                                                  | `gdacs:icon`                  |
+| is_current       | Whether this incident is current.                                                                          | `gdacs:iscurrent`             |
+| population       | Exposed population.                                                                                        | `gdacs:population`            |
+| severity         | Severity of the incident.                                                                                  | `gdacs:severity`              |
+| temporary        | Whether this incident is temporary.                                                                        | `gdacs:temporary`             |
+| to_date          | Date and time this incident ended.                                                                         | `gdacs:todate`                |
+| version          | Version of the incident in this feed.                                                                      | `gdacs:version`               |
+| vulnerability    | Vulnerability score (textual or numerical).                                                                | `gdacs:vulnerability`         |
 
 
 ## Feed Manager
