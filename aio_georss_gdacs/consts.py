@@ -29,6 +29,7 @@ EVENT_TYPE_MAP = {
     "TC": "Tropical Cyclone",
     "TS": "Tsunami",
     "VO": "Volcano",
+    "WF": "Wild Fire",
 }
 
 URL = "https://www.gdacs.org/xml/rss.xml"
