@@ -1,5 +1,10 @@
 # Changes
 
+## 0.7 (09/04/2022)
+* Bump aio_georss_client to v0.10.
+  This includes better error handling if the GDACS service returns invalid XML (which happens occasionally).
+* Properly handle event type Wild Fire (WF).
+
 ## 0.6 (20/02/2022)
 * No functional changes.
 * Added Python 3.10 support.
