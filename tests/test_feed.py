@@ -4,7 +4,7 @@ import datetime
 import aiohttp
 import pytest
 import pytz
-from aio_georss_client.consts import UPDATE_OK
+from aio_georss_client.consts import UPDATE_OK, UPDATE_OK_NO_DATA
 
 from aio_georss_gdacs.consts import ATTRIBUTION
 from aio_georss_gdacs.feed import GdacsFeed
@@ -68,7 +68,7 @@ async def test_update_ok(aresponses, event_loop):
             feed_entry.icon_url == "http://www.gdacs.org/Images/"
             "gdacs_icons/alerts/Green/TC.png"
         )
-        assert feed_entry.is_current == True
+        assert feed_entry.is_current is True
         assert (
             feed_entry.population == "Population affected by Category 1 "
             "(120 km/h) wind speeds or higher is 0"
@@ -76,7 +76,7 @@ async def test_update_ok(aresponses, event_loop):
         assert (
             feed_entry.severity == "Tropical Storm (maximum wind speed " "of 93 km/h)"
         )
-        assert feed_entry.temporary == False
+        assert feed_entry.temporary is False
         assert feed_entry.version == 1
         assert feed_entry.vulnerability == "Medium"
         assert feed_entry.published == datetime.datetime(
@@ -163,3 +163,30 @@ async def test_empty_feed(aresponses, event_loop):
         assert entries is not None
         assert len(entries) == 0
         assert feed.last_timestamp is None
+
+
+@pytest.mark.asyncio
+async def test_update_not_xml(aresponses, event_loop):
+    """Test updating feed where returned payload is not XML."""
+    # During tests it turned out that occasionally the GDACS server appears to return
+    # invalid payload (00 control characters) which results in an exception thrown:
+    # ExpatError: not well-formed (invalid token): line 1, column 0
+    home_coordinates = (-41.2, 174.7)
+    not_xml = "\x00\x00\x00"
+    aresponses.add(
+        "www.gdacs.org",
+        "/xml/rss.xml",
+        "get",
+        aresponses.Response(text=not_xml, status=200),
+    )
+
+    async with aiohttp.ClientSession(loop=event_loop) as websession:
+        feed = GdacsFeed(websession, home_coordinates)
+        assert (
+            repr(feed) == "<GdacsFeed(home=(-41.2, 174.7), "
+            "url=https://www.gdacs.org/xml/rss.xml, radius=None, "
+            "categories=None)>"
+        )
+        status, entries = await feed.update()
+        assert status == UPDATE_OK_NO_DATA
+        assert entries is None
