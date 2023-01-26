@@ -3,7 +3,8 @@
 ## 0.8 (26/01/2023)
 * Added Python 3.11 support.
 * Removed deprecated asynctest dependency.
-* Bumped library versions: black, dateparser, aio_georss_client.
+* Bumped aio_georss_client to v0.11.
+* Bumped library versions: black, dateparser.
 
 ## 0.7 (09/04/2022)
 * Bump aio_georss_client to v0.10.
