@@ -1,5 +1,7 @@
 """Feed Manager for GDACS feed."""
-from typing import Awaitable, Callable, List
+from __future__ import annotations
+
+from typing import Awaitable, Callable
 
 from aio_georss_client.feed_manager import FeedManagerBase
 from aio_georss_client.status_update import StatusUpdate
@@ -17,9 +19,9 @@ class GdacsFeedManager(FeedManagerBase):
         generate_async_callback: Callable[[str], Awaitable[None]],
         update_async_callback: Callable[[str], Awaitable[None]],
         remove_async_callback: Callable[[str], Awaitable[None]],
-        coordinates,
-        filter_radius: float = None,
-        filter_categories: List[str] = None,
+        coordinates: tuple[float, float],
+        filter_radius: float | None = None,
+        filter_categories: list[str] | None = None,
         status_async_callback: Callable[[StatusUpdate], Awaitable[None]] = None,
     ):
         """Initialize the GDACS Feed Manager."""

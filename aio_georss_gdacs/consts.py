@@ -1,28 +1,29 @@
 """GDACS constants."""
+from typing import Final
 
-ATTRIBUTION = "Global Disaster Alert and Coordination System"
+ATTRIBUTION: Final = "Global Disaster Alert and Coordination System"
 
-XML_ATTRIBUTE_VALUE = "@value"
-XML_TEXT = "#text"
+XML_ATTRIBUTE_VALUE: Final = "@value"
+XML_TEXT: Final = "#text"
 
-XML_TAG_DC_SUBJECT = "dc:subject"
-XML_TAG_GDACS_ALERT_LEVEL = "gdacs:alertlevel"
-XML_TAG_GDACS_COUNTRY = "gdacs:country"
-XML_TAG_GDACS_DURATION_IN_WEEK = "gdacs:durationinweek"
-XML_TAG_GDACS_EVENT_ID = "gdacs:eventid"
-XML_TAG_GDACS_EVENT_NAME = "gdacs:eventname"
-XML_TAG_GDACS_EVENT_TYPE = "gdacs:eventtype"
-XML_TAG_GDACS_FROM_DATE = "gdacs:fromdate"
-XML_TAG_GDACS_ICON = "gdacs:icon"
-XML_TAG_GDACS_IS_CURRENT = "gdacs:iscurrent"
-XML_TAG_GDACS_POPULATION = "gdacs:population"
-XML_TAG_GDACS_SEVERITY = "gdacs:severity"
-XML_TAG_GDACS_TEMPORARY = "gdacs:temporary"
-XML_TAG_GDACS_TO_DATE = "gdacs:todate"
-XML_TAG_GDACS_VERSION = "gdacs:version"
-XML_TAG_GDACS_VULNERABILITY = "gdacs:vulnerability"
+XML_TAG_DC_SUBJECT: Final = "dc:subject"
+XML_TAG_GDACS_ALERT_LEVEL: Final = "gdacs:alertlevel"
+XML_TAG_GDACS_COUNTRY: Final = "gdacs:country"
+XML_TAG_GDACS_DURATION_IN_WEEK: Final = "gdacs:durationinweek"
+XML_TAG_GDACS_EVENT_ID: Final = "gdacs:eventid"
+XML_TAG_GDACS_EVENT_NAME: Final = "gdacs:eventname"
+XML_TAG_GDACS_EVENT_TYPE: Final = "gdacs:eventtype"
+XML_TAG_GDACS_FROM_DATE: Final = "gdacs:fromdate"
+XML_TAG_GDACS_ICON: Final = "gdacs:icon"
+XML_TAG_GDACS_IS_CURRENT: Final = "gdacs:iscurrent"
+XML_TAG_GDACS_POPULATION: Final = "gdacs:population"
+XML_TAG_GDACS_SEVERITY: Final = "gdacs:severity"
+XML_TAG_GDACS_TEMPORARY: Final = "gdacs:temporary"
+XML_TAG_GDACS_TO_DATE: Final = "gdacs:todate"
+XML_TAG_GDACS_VERSION: Final = "gdacs:version"
+XML_TAG_GDACS_VULNERABILITY: Final = "gdacs:vulnerability"
 
-EVENT_TYPE_MAP = {
+EVENT_TYPE_MAP: Final = {
     "DR": "Drought",
     "EQ": "Earthquake",
     "FL": "Flood",
@@ -32,4 +33,4 @@ EVENT_TYPE_MAP = {
     "WF": "Wild Fire",
 }
 
-URL = "https://www.gdacs.org/xml/rss.xml"
+URL: Final = "https://www.gdacs.org/xml/rss.xml"
