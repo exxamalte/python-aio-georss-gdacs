@@ -1,6 +1,7 @@
 """GDACS feed."""
+from __future__ import annotations
+
 import logging
-from typing import Dict, List, Tuple
 
 from aio_georss_client.feed import GeoRssFeed
 from aio_georss_client.xml_parser.feed_item import FeedItem
@@ -18,9 +19,9 @@ class GdacsFeed(GeoRssFeed[GdacsFeedEntry]):
     def __init__(
         self,
         websession: ClientSession,
-        home_coordinates: Tuple[float, float],
-        filter_radius: float = None,
-        filter_categories: List[str] = None,
+        home_coordinates: tuple[float, float],
+        filter_radius: float | None = None,
+        filter_categories: list[str] | None = None,
     ):
         """Initialise this service."""
         super().__init__(
@@ -33,9 +34,9 @@ class GdacsFeed(GeoRssFeed[GdacsFeedEntry]):
 
     def _new_entry(
         self,
-        home_coordinates: Tuple[float, float],
+        home_coordinates: tuple[float, float],
         feature: FeedItem,
-        global_data: Dict,
+        global_data: dict,
     ) -> GdacsFeedEntry:
         """Generate a new entry."""
         return GdacsFeedEntry(home_coordinates, feature)

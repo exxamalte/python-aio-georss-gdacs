@@ -1,7 +1,8 @@
 """GDACS feed entry."""
+from __future__ import annotations
+
 from collections.abc import Mapping
 from datetime import datetime
-from typing import List, Optional, Tuple, Type, Union
 
 import dateparser
 from aio_georss_client.feed_entry import FeedEntry
@@ -34,41 +35,41 @@ from .consts import (
 class GdacsFeedEntry(FeedEntry):
     """GDACS feed entry."""
 
-    def __init__(self, home_coordinates: Tuple[float, float], feature: FeedItem):
+    def __init__(self, home_coordinates: tuple[float, float], feature: FeedItem):
         """Initialise this service."""
         super().__init__(home_coordinates, feature)
 
     @property
-    def features(self) -> List[Type[Geometry]]:
+    def features(self) -> list[type[Geometry]]:
         """Only consider Point and Polygon in this integration."""
         return [Point, Polygon]
 
     @property
-    def attribution(self) -> Optional[str]:
+    def attribution(self) -> str | None:
         """Return the attribution of this entry."""
         return ATTRIBUTION
 
     @property
-    def category(self) -> Optional[str]:
+    def category(self) -> str | None:
         """Return the category of this entry."""
         return self.event_type
 
     @property
-    def alert_level(self) -> Optional[str]:
+    def alert_level(self) -> str | None:
         """Return the alert level of this entry."""
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(XML_TAG_GDACS_ALERT_LEVEL)
         return None
 
     @property
-    def country(self) -> Optional[str]:
+    def country(self) -> str | None:
         """Return the country of this entry."""
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(XML_TAG_GDACS_COUNTRY)
         return None
 
     @property
-    def duration_in_week(self) -> Optional[int]:
+    def duration_in_week(self) -> int | None:
         """Return the duration in weeks of this entry."""
         if self._rss_entry:
             # 0 = First week
@@ -82,7 +83,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def event_id(self) -> Optional[int]:
+    def event_id(self) -> int | None:
         """Return the event id of this entry."""
         if self._rss_entry:
             event_id = self._rss_entry.get_additional_attribute(XML_TAG_GDACS_EVENT_ID)
@@ -91,21 +92,21 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def event_name(self) -> Optional[str]:
+    def event_name(self) -> str | None:
         """Return the event name of this entry."""
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(XML_TAG_GDACS_EVENT_NAME)
         return None
 
     @property
-    def event_type_short(self) -> Optional[str]:
+    def event_type_short(self) -> str | None:
         """Return the short event type of this entry."""
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(XML_TAG_GDACS_EVENT_TYPE)
         return None
 
     @property
-    def event_type(self) -> Optional[str]:
+    def event_type(self) -> str | None:
         """Return the event type of this entry."""
         event_type_short = self.event_type_short
         if event_type_short and event_type_short in EVENT_TYPE_MAP:
@@ -113,7 +114,7 @@ class GdacsFeedEntry(FeedEntry):
         return "Unknown"
 
     @property
-    def from_date(self) -> Optional[datetime]:
+    def from_date(self) -> datetime | None:
         """Return the from date of this entry."""
         if self._rss_entry:
             from_date = self._rss_entry.get_additional_attribute(
@@ -124,14 +125,14 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def icon_url(self) -> Optional[str]:
+    def icon_url(self) -> str | None:
         """Return the icon url of this entry."""
         if self._rss_entry:
             return self._rss_entry.get_additional_attribute(XML_TAG_GDACS_ICON)
         return None
 
     @property
-    def is_current(self) -> Optional[bool]:
+    def is_current(self) -> bool | None:
         """Return if this entry is current."""
         if self._rss_entry:
             is_current = self._rss_entry.get_additional_attribute(
@@ -142,7 +143,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def population(self) -> Optional[str]:
+    def population(self) -> str | None:
         """Return the population of this entry."""
         if self._rss_entry:
             population = self._rss_entry.get_additional_attribute(
@@ -157,7 +158,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def severity(self) -> Optional[str]:
+    def severity(self) -> str | None:
         """Return the severity of this entry."""
         if self._rss_entry:
             severity = self._rss_entry.get_additional_attribute(XML_TAG_GDACS_SEVERITY)
@@ -170,7 +171,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def temporary(self) -> Optional[bool]:
+    def temporary(self) -> bool | None:
         """Return if this entry is temporary."""
         if self._rss_entry:
             temporary = self._rss_entry.get_additional_attribute(
@@ -181,7 +182,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def to_date(self) -> Optional[datetime]:
+    def to_date(self) -> datetime | None:
         """Return the to date of this entry."""
         if self._rss_entry:
             to_date = self._rss_entry.get_additional_attribute(XML_TAG_GDACS_TO_DATE)
@@ -190,7 +191,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def version(self) -> Optional[int]:
+    def version(self) -> int | None:
         """Return the version of this entry."""
         if self._rss_entry:
             version = self._rss_entry.get_additional_attribute(XML_TAG_GDACS_VERSION)
@@ -199,7 +200,7 @@ class GdacsFeedEntry(FeedEntry):
         return None
 
     @property
-    def vulnerability(self) -> Optional[Union[str, float]]:
+    def vulnerability(self) -> str | float | None:
         """Return the vulnerability of this entry."""
         if self._rss_entry:
             vulnerability = self._rss_entry.get_additional_attribute(
