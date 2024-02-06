@@ -35,7 +35,7 @@ from .consts import (
 class GdacsFeedEntry(FeedEntry):
     """GDACS feed entry."""
 
-    def __init__(self, home_coordinates: tuple[float, float], feature: FeedItem):
+    def __init__(self, home_coordinates: tuple[float, float], feature: FeedItem | None):
         """Initialise this service."""
         super().__init__(home_coordinates, feature)
 
