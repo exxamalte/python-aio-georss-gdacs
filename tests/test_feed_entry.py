@@ -5,7 +5,7 @@ from aio_georss_gdacs.feed_entry import GdacsFeedEntry
 
 
 @pytest.mark.asyncio
-async def test_empty_feed_entry(aresponses, event_loop):
+async def test_empty_feed_entry():
     """Test feed entry without underlying RSS data."""
     home_coordinates = (-41.2, 174.7)
     feed_entry = GdacsFeedEntry(home_coordinates, None)

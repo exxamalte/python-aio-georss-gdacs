@@ -1,5 +1,7 @@
 """Test for the GDACS feed."""
+import asyncio
 import datetime
+from http import HTTPStatus
 
 import aiohttp
 import pytest
@@ -12,19 +14,16 @@ from tests.utils import load_fixture
 
 
 @pytest.mark.asyncio
-async def test_update_ok(aresponses, event_loop):
+async def test_update_ok(mock_aioresponse):
     """Test updating feed is ok."""
     home_coordinates = (-41.2, 174.7)
-    aresponses.add(
-        "www.gdacs.org",
-        "/xml/rss.xml",
-        "get",
-        aresponses.Response(text=load_fixture("gdacs-1.xml"), status=200),
-        match_querystring=True,
+    mock_aioresponse.get(
+        "https://www.gdacs.org/xml/rss.xml",
+        status=HTTPStatus.OK,
+        body=load_fixture("gdacs-1.xml"),
     )
 
-    async with aiohttp.ClientSession(loop=event_loop) as websession:
-
+    async with aiohttp.ClientSession(loop=asyncio.get_running_loop()) as websession:
         feed = GdacsFeed(websession, home_coordinates)
         assert (
             repr(feed) == "<GdacsFeed(home=(-41.2, 174.7), "
@@ -98,19 +97,16 @@ async def test_update_ok(aresponses, event_loop):
 
 
 @pytest.mark.asyncio
-async def test_update_ok_with_categories_filter(aresponses, event_loop):
+async def test_update_ok_with_categories_filter(mock_aioresponse):
     """Test updating feed is ok with categories filter."""
     home_coordinates = (-41.2, 174.7)
-    aresponses.add(
-        "www.gdacs.org",
-        "/xml/rss.xml",
-        "get",
-        aresponses.Response(text=load_fixture("gdacs-1.xml"), status=200),
-        match_querystring=True,
+    mock_aioresponse.get(
+        "https://www.gdacs.org/xml/rss.xml",
+        status=HTTPStatus.OK,
+        body=load_fixture("gdacs-1.xml"),
     )
 
-    async with aiohttp.ClientSession(loop=event_loop) as websession:
-
+    async with aiohttp.ClientSession(loop=asyncio.get_running_loop()) as websession:
         feed = GdacsFeed(websession, home_coordinates, filter_categories=["Drought"])
         assert (
             repr(feed) == "<GdacsFeed(home=(-41.2, 174.7), "
@@ -139,19 +135,16 @@ async def test_update_ok_with_categories_filter(aresponses, event_loop):
 
 
 @pytest.mark.asyncio
-async def test_empty_feed(aresponses, event_loop):
+async def test_empty_feed(mock_aioresponse):
     """Test updating feed is ok when feed does not contain any entries."""
     home_coordinates = (-41.2, 174.7)
-    aresponses.add(
-        "www.gdacs.org",
-        "/xml/rss.xml",
-        "get",
-        aresponses.Response(text=load_fixture("gdacs-2.xml"), status=200),
-        match_querystring=True,
+    mock_aioresponse.get(
+        "https://www.gdacs.org/xml/rss.xml",
+        status=HTTPStatus.OK,
+        body=load_fixture("gdacs-2.xml"),
     )
 
-    async with aiohttp.ClientSession(loop=event_loop) as websession:
-
+    async with aiohttp.ClientSession(loop=asyncio.get_running_loop()) as websession:
         feed = GdacsFeed(websession, home_coordinates)
         assert (
             repr(feed) == "<GdacsFeed(home=(-41.2, 174.7), "
@@ -166,21 +159,20 @@ async def test_empty_feed(aresponses, event_loop):
 
 
 @pytest.mark.asyncio
-async def test_update_not_xml(aresponses, event_loop):
+async def test_update_not_xml(mock_aioresponse):
     """Test updating feed where returned payload is not XML."""
     # During tests it turned out that occasionally the GDACS server appears to return
     # invalid payload (00 control characters) which results in an exception thrown:
     # ExpatError: not well-formed (invalid token): line 1, column 0
     home_coordinates = (-41.2, 174.7)
     not_xml = "\x00\x00\x00"
-    aresponses.add(
-        "www.gdacs.org",
-        "/xml/rss.xml",
-        "get",
-        aresponses.Response(text=not_xml, status=200),
+    mock_aioresponse.get(
+        "https://www.gdacs.org/xml/rss.xml",
+        status=HTTPStatus.OK,
+        body=not_xml,
     )
 
-    async with aiohttp.ClientSession(loop=event_loop) as websession:
+    async with aiohttp.ClientSession(loop=asyncio.get_running_loop()) as websession:
         feed = GdacsFeed(websession, home_coordinates)
         assert (
             repr(feed) == "<GdacsFeed(home=(-41.2, 174.7), "
