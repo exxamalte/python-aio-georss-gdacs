@@ -1,3 +1,4 @@
+"""Setup of aio_georss_gdacs library."""
 import os
 
 from setuptools import find_packages, setup
@@ -34,7 +35,6 @@ setup(
     url=URL,
     packages=find_packages(exclude=("tests",)),
     classifiers=[
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
