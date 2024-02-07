@@ -1,5 +1,13 @@
 # Changes
 
+## 0.9 (07/02/2024)
+* Added Python 3.12 support.
+* Removed Python 3.7 support.
+* Bumped aio_georss_client to v0.12.
+* Bumped library versions: black, flake8, isort.
+* Migrated to pytest.
+* Code quality improvements.
+
 ## 0.8 (26/01/2023)
 * Added Python 3.11 support.
 * Removed deprecated asynctest dependency.
