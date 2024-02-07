@@ -38,10 +38,8 @@ async def test_update_ok(mock_aioresponse):
         feed_entry = entries[0]
         assert feed_entry is not None
         assert (
-            feed_entry.title == "Green alert for tropical cyclone "
-            "CALVINIA-19. Population affected by "
-            "Category 1 (120 km/h) wind speeds or "
-            "higher is 0."
+            feed_entry.title
+            == "Green alert for tropical cyclone CALVINIA-19. Population affected by Category 1 (120 km/h) wind speeds or higher is 0."
         )
         assert feed_entry.external_id == "TC1000643"
         assert feed_entry.coordinates[0] == pytest.approx(-19.4)
@@ -64,17 +62,15 @@ async def test_update_ok(mock_aioresponse):
             2019, 12, 29, 12, 0, 0, tzinfo=pytz.utc
         )
         assert (
-            feed_entry.icon_url == "http://www.gdacs.org/Images/"
-            "gdacs_icons/alerts/Green/TC.png"
+            feed_entry.icon_url
+            == "http://www.gdacs.org/Images/gdacs_icons/alerts/Green/TC.png"
         )
         assert feed_entry.is_current is True
         assert (
-            feed_entry.population == "Population affected by Category 1 "
-            "(120 km/h) wind speeds or higher is 0"
+            feed_entry.population
+            == "Population affected by Category 1 (120 km/h) wind speeds or higher is 0"
         )
-        assert (
-            feed_entry.severity == "Tropical Storm (maximum wind speed " "of 93 km/h)"
-        )
+        assert feed_entry.severity == "Tropical Storm (maximum wind speed of 93 km/h)"
         assert feed_entry.temporary is False
         assert feed_entry.version == 1
         assert feed_entry.vulnerability == "Medium"
@@ -85,9 +81,8 @@ async def test_update_ok(mock_aioresponse):
         feed_entry = entries[1]
         assert feed_entry is not None
         assert (
-            feed_entry.title == "Green earthquake alert (Magnitude 5.5M, "
-            "Depth:10km) in South Africa 28/12/2019 "
-            "15:36 UTC, No people within 100km."
+            feed_entry.title
+            == "Green earthquake alert (Magnitude 5.5M, Depth:10km) in South Africa 28/12/2019 15:36 UTC, No people within 100km."
         )
         assert feed_entry.external_id == "EQ1199929"
         assert feed_entry.vulnerability == 5.01535213120674
@@ -120,9 +115,7 @@ async def test_update_ok_with_categories_filter(mock_aioresponse):
 
         feed_entry = entries[0]
         assert feed_entry is not None
-        assert (
-            feed_entry.title == "Drought is on going in Bulgaria, " "Iraq, Iran, Turkey"
-        )
+        assert feed_entry.title == "Drought is on going in Bulgaria, Iraq, Iran, Turkey"
         assert feed_entry.external_id == "DR1013682"
         assert feed_entry.coordinates[0] == pytest.approx(39.544)
         assert feed_entry.coordinates[1] == pytest.approx(31.926)
