@@ -1,13 +1,14 @@
 """GDACS feed entry."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping
 from datetime import datetime
 
-import dateparser
 from aio_georss_client.feed_entry import FeedEntry
 from aio_georss_client.xml_parser.feed_item import FeedItem
 from aio_georss_client.xml_parser.geometry import Geometry, Point, Polygon
+import dateparser
 
 from .consts import (
     ATTRIBUTION,
@@ -139,7 +140,7 @@ class GdacsFeedEntry(FeedEntry):
                 XML_TAG_GDACS_IS_CURRENT
             )
             if is_current:
-                return FeedEntry._string2boolean(is_current)
+                return GdacsFeedEntry._string2boolean(is_current)
         return None
 
     @property
@@ -178,7 +179,7 @@ class GdacsFeedEntry(FeedEntry):
                 XML_TAG_GDACS_TEMPORARY
             )
             if temporary:
-                return FeedEntry._string2boolean(temporary)
+                return GdacsFeedEntry._string2boolean(temporary)
         return None
 
     @property

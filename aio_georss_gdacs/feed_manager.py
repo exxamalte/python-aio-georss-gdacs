@@ -1,4 +1,5 @@
 """Feed Manager for GDACS feed."""
+
 from __future__ import annotations
 
 from typing import Awaitable, Callable
@@ -22,7 +23,7 @@ class GdacsFeedManager(FeedManagerBase):
         coordinates: tuple[float, float],
         filter_radius: float | None = None,
         filter_categories: list[str] | None = None,
-        status_async_callback: Callable[[StatusUpdate], Awaitable[None]] = None,
+        status_async_callback: Callable[[StatusUpdate], Awaitable[None]] | None = None,
     ):
         """Initialize the GDACS Feed Manager."""
         feed = GdacsFeed(

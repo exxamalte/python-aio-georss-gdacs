@@ -1,4 +1,5 @@
 """GDACS constants."""
+
 from typing import Final
 
 ATTRIBUTION: Final = "Global Disaster Alert and Coordination System"

@@ -1,7 +1,8 @@
 """Setup of aio_georss_gdacs library."""
-import os
 
 from setuptools import find_packages, setup
+
+from aio_georss_gdacs.__version__ import __version__
 
 NAME = "aio_georss_gdacs"
 AUTHOR = "Malte Franken"
@@ -18,14 +19,9 @@ REQUIRES = [
 with open("README.md") as fh:
     long_description = fh.read()
 
-HERE = os.path.abspath(os.path.dirname(__file__))
-VERSION = {}
-with open(os.path.join(HERE, NAME, "__version__.py")) as f:
-    exec(f.read(), VERSION)  # pylint: disable=exec-used
-
 setup(
     name=NAME,
-    version=VERSION["__version__"],
+    version=__version__,
     author=AUTHOR,
     author_email=AUTHOR_EMAIL,
     description=DESCRIPTION,
