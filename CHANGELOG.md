@@ -1,5 +1,12 @@
 # Changes
 
+## 0.10 (01/09/2024)
+* Removed dateparser and replaced with python-dateutil.
+* Bumped aio_georss_client to v0.13.
+* Removed Python 3.8 support.
+* Bumped library versions: ruff.
+* Code quality improvements.
+
 ## 0.9 (07/02/2024)
 * Added Python 3.12 support.
 * Removed Python 3.7 support.
