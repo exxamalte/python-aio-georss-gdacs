@@ -12,7 +12,7 @@ URL = "https://github.com/exxamalte/python-aio-georss-gdacs"
 
 REQUIRES = [
     "aio_georss_client>=0.12",
-    "dateparser>=1.2.0",
+    "python-dateutil>=2.9.0",
 ]
 
 
