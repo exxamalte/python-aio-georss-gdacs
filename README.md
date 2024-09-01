@@ -1,6 +1,6 @@
 # python-aio-georss-gdacs
 
-[![Build Status](https://github.com/exxamalte/python-aio-georss-gdacs/workflows/CI/badge.svg?branch=master)](https://github.com/exxamalte/python-aio-georss-gdacs/actions?workflow=CI)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/exxamalte/python-aio-georss-gdacs/ci.yaml)](https://github.com/exxamalte/python-aio-georss-gdacs/actions/workflows/ci.yaml)
 [![codecov](https://codecov.io/gh/exxamalte/python-aio-georss-gdacs/branch/master/graph/badge.svg?token=JQ8DE4RPIX)](https://codecov.io/gh/exxamalte/python-aio-georss-gdacs)
 [![PyPi](https://img.shields.io/pypi/v/aio-georss-gdacs.svg)](https://pypi.python.org/pypi/aio-georss-gdacs)
 [![Version](https://img.shields.io/pypi/pyversions/aio-georss-gdacs.svg)](https://pypi.python.org/pypi/aio-georss-gdacs)
