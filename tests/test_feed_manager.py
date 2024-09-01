@@ -1,4 +1,5 @@
 """Test for the GDACS feed manager."""
+
 import asyncio
 import datetime
 from http import HTTPStatus

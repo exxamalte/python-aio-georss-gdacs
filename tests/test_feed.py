@@ -1,12 +1,13 @@
 """Test for the GDACS feed."""
+
 import asyncio
 import datetime
 from http import HTTPStatus
 
+from aio_georss_client.consts import UPDATE_OK, UPDATE_OK_NO_DATA
 import aiohttp
 import pytest
 import pytz
-from aio_georss_client.consts import UPDATE_OK, UPDATE_OK_NO_DATA
 
 from aio_georss_gdacs.consts import ATTRIBUTION
 from aio_georss_gdacs.feed import GdacsFeed

@@ -1,4 +1,5 @@
 """Tests for GDACS feed general setup."""
+
 from aio_georss_gdacs import __version__
 
 
