@@ -8,7 +8,7 @@ from datetime import datetime
 from aio_georss_client.feed_entry import FeedEntry
 from aio_georss_client.xml_parser.feed_item import FeedItem
 from aio_georss_client.xml_parser.geometry import Geometry, Point, Polygon
-import dateparser
+import dateutil
 
 from .consts import (
     ATTRIBUTION,
@@ -122,7 +122,7 @@ class GdacsFeedEntry(FeedEntry):
                 XML_TAG_GDACS_FROM_DATE
             )
             if from_date:
-                return dateparser.parse(from_date)
+                return dateutil.parser.parse(from_date)
         return None
 
     @property
@@ -188,7 +188,7 @@ class GdacsFeedEntry(FeedEntry):
         if self._rss_entry:
             to_date = self._rss_entry.get_additional_attribute(XML_TAG_GDACS_TO_DATE)
             if to_date:
-                return dateparser.parse(to_date)
+                return dateutil.parser.parse(to_date)
         return None
 
     @property
