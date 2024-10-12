@@ -1,3 +1,55 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aio_georss_gdacs"
+version  = "0.10"
+requires-python = ">= 3.9"
+authors = [
+  {name = "Malte Franken", email = "coding@subspace.de"},
+]
+description = "An async GeoRSS client library for GDACS feeds."
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["homeassistant", "georss", "gdacs"]
+classifiers = [
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Development Status :: 5 - Production/Stable",
+]
+dependencies = [
+    "aio-georss-client>=0.13",
+    "python-dateutil>=2.9.0",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest-asyncio",
+    "pytest-timeout",
+    "pytest-xdist",
+    "pytest-cov",
+    "coverage",
+    "mock",
+    "aioresponses",
+    "pytz"
+]
+
+[project.urls]
+Repository = "https://github.com/exxamalte/python-aio-georss-gdacs"
+Issues = "https://github.com/exxamalte/python-aio-georss-gdacs/issues"
+Changelog = "https://github.com/exxamalte/python-aio-georss-gdacs/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["aio_georss_gdacs*"]
+
 [tool.ruff.lint]
 select = [
     "A001", # Variable {name} is shadowing a Python builtin
