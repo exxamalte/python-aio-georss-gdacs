@@ -15,10 +15,10 @@ from tests.utils import load_fixture
 
 
 @pytest.mark.asyncio
-async def test_update_ok(mock_aioresponse):
+async def test_update_ok(mock_aiointercept):
     """Test updating feed is ok."""
     home_coordinates = (-41.2, 174.7)
-    mock_aioresponse.get(
+    mock_aiointercept.get(
         "https://www.gdacs.org/xml/rss.xml",
         status=HTTPStatus.OK,
         body=load_fixture("gdacs-1.xml"),
@@ -93,10 +93,10 @@ async def test_update_ok(mock_aioresponse):
 
 
 @pytest.mark.asyncio
-async def test_update_ok_with_categories_filter(mock_aioresponse):
+async def test_update_ok_with_categories_filter(mock_aiointercept):
     """Test updating feed is ok with categories filter."""
     home_coordinates = (-41.2, 174.7)
-    mock_aioresponse.get(
+    mock_aiointercept.get(
         "https://www.gdacs.org/xml/rss.xml",
         status=HTTPStatus.OK,
         body=load_fixture("gdacs-1.xml"),
@@ -129,10 +129,10 @@ async def test_update_ok_with_categories_filter(mock_aioresponse):
 
 
 @pytest.mark.asyncio
-async def test_empty_feed(mock_aioresponse):
+async def test_empty_feed(mock_aiointercept):
     """Test updating feed is ok when feed does not contain any entries."""
     home_coordinates = (-41.2, 174.7)
-    mock_aioresponse.get(
+    mock_aiointercept.get(
         "https://www.gdacs.org/xml/rss.xml",
         status=HTTPStatus.OK,
         body=load_fixture("gdacs-2.xml"),
@@ -153,14 +153,14 @@ async def test_empty_feed(mock_aioresponse):
 
 
 @pytest.mark.asyncio
-async def test_update_not_xml(mock_aioresponse):
+async def test_update_not_xml(mock_aiointercept):
     """Test updating feed where returned payload is not XML."""
     # During tests it turned out that occasionally the GDACS server appears to return
     # invalid payload (00 control characters) which results in an exception thrown:
     # ExpatError: not well-formed (invalid token): line 1, column 0
     home_coordinates = (-41.2, 174.7)
     not_xml = "\x00\x00\x00"
-    mock_aioresponse.get(
+    mock_aiointercept.get(
         "https://www.gdacs.org/xml/rss.xml",
         status=HTTPStatus.OK,
         body=not_xml,

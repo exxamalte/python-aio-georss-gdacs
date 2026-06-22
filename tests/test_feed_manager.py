@@ -13,10 +13,10 @@ from tests.utils import load_fixture
 
 
 @pytest.mark.asyncio
-async def test_feed_manager(mock_aioresponse):
+async def test_feed_manager(mock_aiointercept):
     """Test the feed manager."""
     home_coordinates = (-41.2, 174.7)
-    mock_aioresponse.get(
+    mock_aiointercept.get(
         "https://www.gdacs.org/xml/rss.xml",
         status=HTTPStatus.OK,
         body=load_fixture("gdacs-1.xml"),
