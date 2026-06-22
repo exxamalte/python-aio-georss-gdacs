@@ -7,21 +7,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aio_georss_gdacs"
-version  = "0.10"
-requires-python = ">= 3.9"
+version  = "2026.6.0"
+requires-python = ">= 3.11"
 authors = [
   {name = "Malte Franken", email = "coding@subspace.de"},
 ]
 description = "An async GeoRSS client library for GDACS feeds."
 readme = "README.md"
-license = {file = "LICENSE"}
+license = "Apache-2.0"
 keywords = ["homeassistant", "georss", "gdacs"]
 classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
-  "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
   "Development Status :: 5 - Production/Stable",
 ]

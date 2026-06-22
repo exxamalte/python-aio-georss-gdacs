@@ -1,5 +1,13 @@
 # Changes
 
+## 2026.6.0 (23/06/2026)
+* Added Python 3.13 and 3.14 support.
+* Removed Python 3.9 and 3.10 support.
+* Bump aio-georss-client to 2026.6.0
+* Bump ruff to 0.15.18
+* Code quality improvements.
+* Changing to date-based versioning
+
 ## 0.10 (01/09/2024)
 * Removed dateparser and replaced with python-dateutil.
 * Bumped aio_georss_client to v0.13.
